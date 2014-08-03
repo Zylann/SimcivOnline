@@ -192,7 +192,7 @@ public :
 	}
 
 	// get an element
-	T get(s32 x, s32 y) const throw(Exception)
+	T get(s32 x, s32 y) const
 	{
 		if(x < 0 || y < 0 || x >= m_sizeX || y >= m_sizeY)
 			throw Exception("Array2D::get " + Vector2i(x,y));
@@ -207,7 +207,7 @@ public :
 	}
 
 	// Set an element
-	void set(s32 x, s32 y, const T & value) throw(Exception)
+	void set(s32 x, s32 y, const T & value)
 	{
 		if(x < 0 || y < 0 || x >= static_cast<s32>(m_sizeX) || y >= static_cast<s32>(m_sizeY))
 			throw Exception("Array2D::set " + Vector2i(x,y));
@@ -252,7 +252,7 @@ public :
 
 	// set an element
 	// (convenience)
-	inline void set(const Vector2i & pos, const T & value) throw(Exception)
+	inline void set(const Vector2i & pos, const T & value)
 	{
 		set(pos.x, pos.y, value);
 	}
@@ -266,7 +266,7 @@ public :
 
 	// get an element
 	// (convenience)
-	inline T get(const Vector2i & pos) const throw(Exception)
+	inline T get(const Vector2i & pos) const
 	{
 		get(pos.x, pos.y);
 	}

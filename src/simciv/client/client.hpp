@@ -1,7 +1,7 @@
 #ifndef HEADER_SIMCIV_CLIENT_HPP_INCLUDED
 #define HEADER_SIMCIV_CLIENT_HPP_INCLUDED
 
-#include "simciv/networkhost.hpp"
+#include "simciv/core/networkhost.hpp"
 
 namespace simciv
 {

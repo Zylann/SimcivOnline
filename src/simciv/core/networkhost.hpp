@@ -3,7 +3,7 @@
 
 #include <enet/enet.h>
 #include <fm/util/Blob.hpp>
-#include "common.hpp"
+#include "simciv/common.hpp"
 
 namespace simciv
 {

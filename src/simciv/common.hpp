@@ -5,6 +5,8 @@
 
 using namespace zn;
 
+#define SIMCIV_DEFAULT_PORT 5551
+
 #endif // HEADER_SIMCIV_COMMON_HPP_INCLUDED
 
 

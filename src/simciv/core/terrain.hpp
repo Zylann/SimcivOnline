@@ -2,7 +2,7 @@
 #define HEADER_SIMCIV_TERRAIN_HPP_INCLUDED
 
 #include <fm/util/Array2D.hpp>
-#include "common.hpp"
+#include "simciv/common.hpp"
 
 namespace simciv
 {

@@ -13,7 +13,7 @@ bool Server::init()
 	// A specific host address can be specified by
 	// enet_address_set_host (& address, "x.x.x.x");
 	m_address.host = ENET_HOST_ANY;
-	m_address.port = 1234;
+	m_address.port = SIMCIV_DEFAULT_PORT;
 
 	m_host = enet_host_create(
 		&m_address, // the address to bind the server host to

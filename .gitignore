@@ -1,6 +1,18 @@
+# Build
 bin/
 obj/
 
+# Personal
+old/
+draft/
+
+# Code::Blocks
 *.depend
 *.layout
+
+# Visual Studio
+*.vcxproj.user
+*.vcxproj.filters
+
+
 

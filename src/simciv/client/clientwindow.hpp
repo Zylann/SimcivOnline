@@ -2,7 +2,7 @@
 #define HEADER_SIMCIV_CLIENTWINDOW_H_INCLUDED
 
 #include <SFML/Graphics.hpp>
-#include "simciv/world.hpp"
+#include "simciv/core/world.hpp"
 #include "client.hpp"
 
 namespace simciv

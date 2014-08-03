@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="SimcivServer" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="win32_debug">
+				<Option output="bin/win32_gcc/debug/simciv_server" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/win32_gcc/debug/server/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+					<Add option="-DSFML_DYNAMIC" />
+					<Add option="-DSIMCIV_SERVER" />
+					<Add directory="src" />
+				</Compiler>
+				<Linker>
+					<Add library="enet" />
+					<Add library="ws2_32" />
+					<Add library="sfml-system" />
+				</Linker>
+			</Target>
+			<Target title="win32_release">
+				<Option output="bin/win32_gcc/release/simciv_server" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/win32_gcc/release/server/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add option="-DSFML_DYNAMIC" />
+					<Add option="-DSIMCIV_SERVER" />
+					<Add directory="src" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+					<Add library="enet" />
+					<Add library="ws2_32" />
+					<Add library="sfml-system" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-std=c++11" />
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+		</Compiler>
+		<Unit filename="src/fm/config.hpp" />
+		<Unit filename="src/fm/types.hpp" />
+		<Unit filename="src/fm/util/Array2D.hpp" />
+		<Unit filename="src/fm/util/Blob.cpp" />
+		<Unit filename="src/fm/util/Blob.hpp" />
+		<Unit filename="src/fm/util/Exception.hpp" />
+		<Unit filename="src/fm/util/Vector2.hpp" />
+		<Unit filename="src/fm/util/math.hpp" />
+		<Unit filename="src/fm/util/stringutils.hpp" />
+		<Unit filename="src/main.cpp" />
+		<Unit filename="src/simciv/common.hpp" />
+		<Unit filename="src/simciv/core/entity.cpp" />
+		<Unit filename="src/simciv/core/entity.hpp" />
+		<Unit filename="src/simciv/core/networkhost.cpp" />
+		<Unit filename="src/simciv/core/networkhost.hpp" />
+		<Unit filename="src/simciv/core/terrain.cpp" />
+		<Unit filename="src/simciv/core/terrain.hpp" />
+		<Unit filename="src/simciv/core/world.cpp" />
+		<Unit filename="src/simciv/core/world.hpp" />
+		<Unit filename="src/simciv/server/server.cpp" />
+		<Unit filename="src/simciv/server/server.hpp" />
+		<Unit filename="src/simciv/server/servershell.cpp" />
+		<Unit filename="src/simciv/server/servershell.hpp" />
+		<Unit filename="src/simciv/version.cpp" />
+		<Unit filename="src/simciv/version.hpp" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

@@ -4,7 +4,7 @@
 #include <SFML/System.hpp>
 #include <queue>
 #include "server.hpp"
-#include "simciv/world.hpp"
+#include "simciv/core/world.hpp"
 
 namespace simciv
 {

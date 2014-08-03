@@ -6,12 +6,6 @@
 // Note: these #defines can either be active here or in your build commands.
 //
 
-// TODO (global) normalize documentation comments
-// TODO (global) normalize header comments
-// TODO (global) compile zlib as a separate lib (make another project)
-// TODO (global) compile JsonBox as a separate lib (make another project)
-// TODO (global) find a name for the engine. "Plane"? ("proto" is a working title !)
-
 // Enables debug code (additionnal checks and messages, may decrease performance)
 #define ZN_DEBUG
 

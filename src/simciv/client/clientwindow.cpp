@@ -6,7 +6,7 @@ namespace simciv
 
 void ClientWindow::start()
 {
-	m_client.connect("127.0.0.1", 1234);
+	m_client.connect("127.0.0.1", SIMCIV_DEFAULT_PORT);
 
 	sf::ContextSettings contextSettings(
 		0, // Depth buffer bits

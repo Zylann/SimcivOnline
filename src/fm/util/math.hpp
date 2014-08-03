@@ -120,7 +120,7 @@ inline const T & clamp(const T & x, const T & min, const T & max)
 /// \brief Initializes the random seed used by math random functions
 inline void randomSeed()
 {
-	std::srand(std::time(nullptr));
+	std::srand(static_cast<u32>(std::time(nullptr)));
 }
 
 /// \brief Sets a specific seed for math random functions
