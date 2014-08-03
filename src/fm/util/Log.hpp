@@ -24,12 +24,13 @@ public:
 
 	enum MessageTypeMask
 	{
-		M_DEBUG     = 1,
-		M_INFO      = 1 << 1,
-		M_WARNING   = 1 << 2,
-		M_ERROR     = 1 << 3,
-		M_ALL       = M_DEBUG | M_INFO | M_WARNING | M_ERROR,
-		M_NONE      = 0
+		M_DEBUG       = 1,
+		M_INFO        = 1 << 1,
+		M_WARNING     = 1 << 2,
+		M_ERROR       = 1 << 3,
+		M_ALL         = M_DEBUG | M_INFO | M_WARNING | M_ERROR,
+		M_NONE        = 0,
+		M_AUTO_FLUSH  = 1 << 4 // Specific to file output
 	};
 
 	Log() :
@@ -129,6 +130,10 @@ public:
 		if(m_file && (m_messageType & m_fileOutputFlags))
 		{
 			m_file << a;
+			if(m_fileOutputFlags & M_AUTO_FLUSH)
+			{
+				m_file.flush();
+			}
 		}
 
 		if(m_consoleOutputFlags & m_consoleOutputFlags)

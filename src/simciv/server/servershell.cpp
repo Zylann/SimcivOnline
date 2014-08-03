@@ -60,7 +60,10 @@ void ServerShell::asyncMainLoop()
 {
 	m_runFlag = m_server.init();
 
+	// Don't use the terminal, which is already in use by the shell
 	serverlog.setConsoleOutputFlags(Log::M_NONE);
+	// Redirect output to a log file
+	serverlog.setFileOutputFlags(Log::M_ALL | Log::M_AUTO_FLUSH);
 	serverlog.openFile("simciv_server.log");
 
 	serverlog.info() << "Server started" << serverlog.endl();
@@ -73,7 +76,7 @@ void ServerShell::asyncMainLoop()
 		std::string command = getMessage(m_input);
 		if(!command.empty())
 		{
-			serverlog.info() << "Received command '" << command << "'" << serverlog.endl();*
+			serverlog.info() << "Received command '" << command << "'" << serverlog.endl();
 
 			if(command == "shutdown")
 			{

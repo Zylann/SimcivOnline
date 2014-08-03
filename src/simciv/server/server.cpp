@@ -1,5 +1,6 @@
 #include <iostream>
 #include "server.hpp"
+#include "servershell.hpp"
 
 using namespace std;
 
@@ -27,7 +28,7 @@ bool Server::init()
 
 	if(m_host == nullptr)
 	{
-		cout << "E: Server: An error occurred while trying to create an ENet server host." << endl;
+		serverlog.err() << "Server: An error occurred while trying to create an ENet server host." << serverlog.endl();
 		return false;
 	}
 
@@ -37,21 +38,21 @@ bool Server::init()
 //------------------------------------------------------------------------------
 bool Server::onConnect(ENetPeer* peer)
 {
-	cout << "I: Server: onConnect" << endl;
+	serverlog.info() << "Server: onConnect" << serverlog.endl();
 	return true;
 }
 
 //------------------------------------------------------------------------------
 bool Server::onReceive(Blob& input, ENetPeer* peer, u8 packetType)
 {
-	cout << "I: Server: onReceive" << endl;
+	serverlog.info() << "Server: onReceive" << serverlog.endl();
 	return true;
 }
 
 //------------------------------------------------------------------------------
 void Server::onDisconnect(ENetPeer* peer)
 {
-	cout << "I: Server: onDisconnect" << endl;
+	serverlog.info() << "Server: onDisconnect" << serverlog.endl();
 }
 
 
