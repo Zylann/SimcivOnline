@@ -14,5 +14,7 @@ draft/
 *.vcxproj.user
 *.vcxproj.filters
 
+# Simciv generated data
+*.log
 
 
