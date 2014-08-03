@@ -22,7 +22,7 @@ public:
 		_msg = msg;
 	}
 
-	const char * what() const noexcept override { return _msg.c_str(); }
+	const char * what() const ZN_NOEXCEPT override { return _msg.c_str(); }
 
 private:
 

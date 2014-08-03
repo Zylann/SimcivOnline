@@ -6,7 +6,6 @@
 // Note: these #defines can either be active here or in your build commands.
 //
 
-
 // TODO (global) normalize documentation comments
 // TODO (global) normalize header comments
 // TODO (global) compile zlib as a separate lib (make another project)
@@ -16,28 +15,11 @@
 // Enables debug code (additionnal checks and messages, may decrease performance)
 #define ZN_DEBUG
 
-// Enables editor integration (not implemented yet)
-//#define ZN_EDITOR
-
 // Hint to ease SFML integration
 // TODO use SFML_API instead?
-#ifdef SFML_API
+//#ifdef SFML_API
 	#define ZN_SFML
-#endif
-
-// Hint for debug profiling. May decrease performance.
-#define ZN_PROFILE
-
-// Hint to maximize C++0x compatibility
-//#define ZN_CPP0X
-
-// Enables DLL exports of the API.
-// Enable it if you compile the project as a DLL you want to use.
-// Disable this if you included the code in your project instead.
-//#define ZN_DLL
-
-// Enables squirrel binding code
-//#define ZN_SQUIRREL
+//#endif
 
 // DLL options
 #ifdef ZN_DLL
@@ -47,6 +29,13 @@
 #else
 	// Not creating a DLL: empty macro
 	#define ZN_API
+#endif
+
+// C++11 features
+#ifdef _MSC_VER
+	#define ZN_NOEXCEPT _NOEXCEPT
+#else
+	#define ZN_NOEXCEPT noexcept
 #endif
 
 #endif // HEADER_ZN_CONFIG_HPP_INCLUDED
