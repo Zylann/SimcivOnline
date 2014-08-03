@@ -36,8 +36,16 @@
 		<Unit filename="src/fm/util/Blob.cpp" />
 		<Unit filename="src/fm/util/Blob.hpp" />
 		<Unit filename="src/fm/util/Exception.hpp" />
+		<Unit filename="src/fm/util/Log.cpp" />
+		<Unit filename="src/fm/util/Log.hpp" />
+		<Unit filename="src/fm/util/NonCopyable.hpp" />
 		<Unit filename="src/fm/util/Vector2.hpp" />
+		<Unit filename="src/fm/util/interpolation.cpp" />
+		<Unit filename="src/fm/util/interpolation.hpp" />
 		<Unit filename="src/fm/util/math.hpp" />
+		<Unit filename="src/fm/util/noise.cpp" />
+		<Unit filename="src/fm/util/noise.hpp" />
+		<Unit filename="src/fm/util/stringutils.cpp" />
 		<Unit filename="src/fm/util/stringutils.hpp" />
 		<Unit filename="src/main.cpp" />
 		<Unit filename="src/simciv/client/client.cpp" />

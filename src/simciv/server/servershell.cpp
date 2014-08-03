@@ -60,19 +60,30 @@ void ServerShell::asyncMainLoop()
 {
 	m_runFlag = m_server.init();
 
+	serverlog.setConsoleOutputFlags(Log::M_NONE);
+	serverlog.openFile("simciv_server.log");
+
+	serverlog.info() << "Server started" << serverlog.endl();
+
+	m_world.generate();
+
 	while(m_runFlag)
 	{
 		// Pop commands from the input queue
 		std::string command = getMessage(m_input);
 		if(!command.empty())
 		{
+			serverlog.info() << "Received command '" << command << "'" << serverlog.endl();*
+
 			if(command == "shutdown")
 			{
 				m_runFlag = false;
 			}
 			else
 			{
-				pushMessage(m_output, "Unknown command '" + command + "'");
+				std::string msg = "Unknown command";
+				serverlog.more() << msg << serverlog.endl();
+				pushMessage(m_output, msg + '\'' + command + '\'');
 			}
 		}
 
@@ -83,6 +94,7 @@ void ServerShell::asyncMainLoop()
 		sf::sleep(sf::milliseconds(1000 / 60));
 	}
 
+	serverlog.info() << "Server closed" << serverlog.endl();
 	pushMessage(m_output, "Server closed.");
 }
 

@@ -6,6 +6,8 @@ using namespace std;
 namespace simciv
 {
 
+Log serverlog;
+
 //------------------------------------------------------------------------------
 bool Server::init()
 {
