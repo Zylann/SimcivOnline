@@ -10,6 +10,8 @@ namespace simciv
 //------------------------------------------------------------------------------
 bool Client::init()
 {
+	cout << "I: Client init" << endl;
+
 	assert(m_host == nullptr);
 
 	m_host = enet_host_create(
@@ -140,6 +142,17 @@ bool Client::onReceive(Blob & input, ENetPeer * peer, u8 packetType)
 void Client::onDisconnect(ENetPeer * peer)
 {
 	cout << "I: Client: onDisconnect" << endl;
+}
+
+//------------------------------------------------------------------------------
+void Client::sendToServer(const Blob & output, u32 enetFlags)
+{
+	assert(!output.endOfRead());
+
+	if(isConnected())
+	{
+		send(output, m_peer, enetFlags);
+	}
 }
 
 } // namespace simciv

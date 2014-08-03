@@ -6,6 +6,11 @@ namespace simciv
 //------------------------------------------------------------------------------
 void ServerShell::start()
 {
+	if(!m_server.init())
+	{
+		return;
+	}
+
 	m_runFlag = true;
 	m_thread.launch();
 
@@ -58,8 +63,6 @@ void ServerShell::pushMessage(std::queue<std::string> & messageQueue, const std:
 //------------------------------------------------------------------------------
 void ServerShell::asyncMainLoop()
 {
-	m_runFlag = m_server.init();
-
 	// Don't use the terminal, which is already in use by the shell
 	serverlog.setConsoleOutputFlags(Log::M_NONE);
 	// Redirect output to a log file

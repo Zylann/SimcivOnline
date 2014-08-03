@@ -30,7 +30,7 @@ public:
 protected:
 
 	// Sends a message to a peer
-	void send(const Blob & output, ENetPeer * peer, u32 enetFlags = ENET_PACKET_FLAG_RELIABLE);
+	void send(const Blob & output, ENetPeer * peer, u32 enetFlags);
 
 	// Called when the host has been connected to a peer
 	virtual bool onConnect(ENetPeer * peer) = 0;

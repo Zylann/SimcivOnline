@@ -11,7 +11,8 @@ void NetworkHost::update()
 {
 	ENetEvent event;
 
-	while(enet_host_service(m_host, &event, 0) > 0)
+	s32 hostRetval = 0;
+	while((hostRetval = enet_host_service(m_host, &event, 0)) > 0)
 	{
 		switch(event.type)
 		{
@@ -60,6 +61,28 @@ void NetworkHost::update()
 			break;
 		}
 	}
+
+	if(hostRetval < 0)
+	{
+		cout << "E: NetworkHost: service_host failed" << endl;
+	}
+}
+
+//------------------------------------------------------------------------------
+void NetworkHost::send(const Blob & output, ENetPeer * peer, u32 enetFlags)
+{
+	// TODO perform data compression on big packets (zlib?)
+
+	ENetPacket * packet = enet_packet_create(
+		output.getData(),
+		output.getDataSize(),
+		enetFlags
+	);
+
+	// Send the packet to the peer over channel id 0.
+	// One could also broadcast the packet by
+	// enet_host_broadcast (host, 0, packet);
+	enet_peer_send(peer, 0, packet);
 }
 
 } // namespace simciv

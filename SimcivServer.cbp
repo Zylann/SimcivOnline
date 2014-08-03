@@ -20,6 +20,7 @@
 				<Linker>
 					<Add library="enet" />
 					<Add library="ws2_32" />
+					<Add library="winmm" />
 					<Add library="sfml-system" />
 				</Linker>
 			</Target>
@@ -38,6 +39,7 @@
 					<Add option="-s" />
 					<Add library="enet" />
 					<Add library="ws2_32" />
+					<Add library="winmm" />
 					<Add library="sfml-system" />
 				</Linker>
 			</Target>

@@ -4,6 +4,7 @@
 namespace simciv
 {
 
+//------------------------------------------------------------------------------
 void ClientWindow::start()
 {
 	m_client.connect("127.0.0.1", SIMCIV_DEFAULT_PORT);
@@ -29,6 +30,14 @@ void ClientWindow::start()
 			if(event.type == sf::Event::Closed)
 			{
 				m_window.close();
+			}
+			else if(event.type == sf::Event::MouseButtonPressed)
+			{
+				Blob testPacket;
+				testPacket << 42;
+				testPacket << "This is a test";
+				std::cout << "Sending stuff" << std::endl;
+				m_client.sendToServer(testPacket);
 			}
 		}
 

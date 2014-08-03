@@ -24,6 +24,8 @@ public:
 	void disconnect();
 	bool isConnected() const;
 
+	void sendToServer(const Blob & output, u32 enetFlags = ENET_PACKET_FLAG_RELIABLE);
+
 protected:
 
 	bool onConnect(ENetPeer * peer) override;
