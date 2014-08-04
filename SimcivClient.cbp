@@ -15,6 +15,7 @@
 					<Add option="-g" />
 					<Add option="-DSFML_DYNAMIC" />
 					<Add directory="src" />
+					<Add directory="libs/include" />
 				</Compiler>
 				<Linker>
 					<Add library="enet" />
@@ -23,6 +24,7 @@
 					<Add library="sfml-graphics" />
 					<Add library="sfml-system" />
 					<Add library="sfml-window" />
+					<Add directory="libs/bin/gcc-mingw32" />
 				</Linker>
 			</Target>
 		</Build>

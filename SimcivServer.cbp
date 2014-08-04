@@ -16,12 +16,14 @@
 					<Add option="-DSFML_DYNAMIC" />
 					<Add option="-DSIMCIV_SERVER" />
 					<Add directory="src" />
+					<Add directory="libs/include" />
 				</Compiler>
 				<Linker>
 					<Add library="enet" />
 					<Add library="ws2_32" />
 					<Add library="winmm" />
 					<Add library="sfml-system" />
+					<Add directory="libs/bin/gcc-mingw32" />
 				</Linker>
 			</Target>
 			<Target title="win32_release">
