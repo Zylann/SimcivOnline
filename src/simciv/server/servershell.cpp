@@ -71,7 +71,7 @@ void ServerShell::asyncMainLoop()
 
 	serverlog.info() << "Server started" << serverlog.endl();
 
-	m_world.generate();
+	//m_world.generate();
 
 	while(m_runFlag)
 	{

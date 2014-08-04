@@ -12,6 +12,9 @@ Log serverlog;
 //------------------------------------------------------------------------------
 bool Server::init()
 {
+	// Fore use to internal functions
+	setLog(serverlog);
+
 	// Bind the server to the default localhost.
 	// A specific host address can be specified by
 	// enet_address_set_host (& address, "x.x.x.x");

@@ -22,11 +22,6 @@ void NetworkHost::update()
 
 		case ENET_EVENT_TYPE_RECEIVE:
 		{
-//			cout << "I: NetworkHost: A packet of length " << event.packet->dataLength
-//				<< " containing " << event.packet->data
-//				<< " was received from " << event.peer->data
-//				<< " on channel " << event.channelID << endl;
-
 			Blob packet;
 			packet.append(event.packet->data, event.packet->dataLength);
 
@@ -38,33 +33,35 @@ void NetworkHost::update()
 				u8 packetType;
 				packet >> packetType;
 				onReceive(packet, event.peer, packetType);
-//				{
-//					cout << "I: NetworkHost: unknown packet type (" << (u32)packetType << ")" << endl;
-//				}
 			}
-//			else
-//			{
-//				cout << "I: NetworkHost: received empty packet" << endl;
-//			}
+			else
+			{
+				if(r_log)
+				{
+					r_log->warn() << "NetworkHost: Received empty packet" << r_log->endl();
+				}
+			}
 		}
 		break;
 
 		case ENET_EVENT_TYPE_DISCONNECT:
-//			cout << "I: NetworkHost: " << event.peer->data << " disconnected" << endl;
 			onDisconnect(event.peer);
 			// Reset the peer's client information
 			event.peer->data = nullptr;
 			break;
 
 		default:
-//			cout << "I: NetworkHost: wack?" << endl;
+			// Drop unknown packet
 			break;
 		}
 	}
 
 	if(hostRetval < 0)
 	{
-		cout << "E: NetworkHost: service_host failed" << endl;
+		if(r_log)
+		{
+			r_log->err() << "NetworkHost: service_host failed" << r_log->endl();
+		}
 	}
 }
 

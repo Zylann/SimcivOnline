@@ -3,6 +3,7 @@
 
 #include <enet/enet.h>
 #include <fm/util/Blob.hpp>
+#include <fm/util/Log.hpp>
 #include "simciv/common.hpp"
 
 namespace simciv
@@ -27,6 +28,9 @@ public:
 
 	void update();
 
+	// Sets the log system to be used (if the global one can't be used)
+	inline void setLog(zn::Log & log) { r_log = &log; }
+
 protected:
 
 	// Sends a message to a peer
@@ -42,6 +46,7 @@ protected:
 	virtual void onDisconnect(ENetPeer * peer) = 0;
 
 	ENetHost * m_host; // local host
+	zn::Log * r_log;
 };
 
 } // namespace simciv

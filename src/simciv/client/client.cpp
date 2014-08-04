@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cassert>
+#include <fm/util/Log.hpp>
 #include "client.hpp"
 
 using namespace std;
@@ -10,6 +11,8 @@ namespace simciv
 //------------------------------------------------------------------------------
 bool Client::init()
 {
+	setLog(zn::log);
+
 	cout << "I: Client init" << endl;
 
 	assert(m_host == nullptr);
